@@ -10,16 +10,16 @@
 	snap.pay(token, {
 		gopayMode: "auto",
 		onSuccess: function(result) {
-			Toaster.postMessage({status:"success", result:result});
+			Toaster.postMessage(JSON.stringify({status:"success", result:result}));
 		},
 		onPending: function(result) {
-			Toaster.postMessage({status:"pending", result:result});
+			Toaster.postMessage(JSON.stringify({status:"pending", result:result}));
 		},
 		onError: function(result) {
-			Toaster.postMessage({status:"error", result:result});
+			Toaster.postMessage(JSON.stringify({status:"error", result:result}));
 		},
 		onClose: function() {
-			Toaster.postMessage({status:"close", result:null});
+			Toaster.postMessage(JSON.stringify({status:"close", result:null}));
 		}
 	});
 </script>
