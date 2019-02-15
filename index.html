@@ -1,0 +1,26 @@
+<html>
+<head>
+	<script src="https://app.sandbox.midtrans.com/snap/snap.js"></script>
+</head>
+<body>
+<script>
+	const urlParams = new URLSearchParams(window.location.search);
+	const token = urlParams.get('token');
+	snap.pay(token, {
+		gopayMode: "auto",
+		onSuccess: function(result) {
+			Toaster.postMessage(result);
+		},
+		onPending: function(result) {
+			Toaster.postMessage(result);
+		},
+		onError: function(result) {
+			Toaster.postMessage(result);
+		},
+		onClose: function() {
+			Toaster.postMessage("close");
+		}
+	});
+</script>
+</body>
+</html>
